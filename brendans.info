@@ -1,0 +1,6 @@
+; $Id$
+name = "Brendans First"
+description = "Brendans First Block Module"
+package = "ABC Corp."
+core = 7.x
+version = 1.0
