@@ -39,7 +39,8 @@ function brendans_weather_content() {
     "todayLow" => $data->weather->ForecastData->forecastList[0]->low,
     "cityName" => $data->weather->LocationData->location->city,
     "stateName" => $data->weather->LocationData->location->state,
-    "currentTemp" => $currentTemp = $data->weather->ObsData->temperature);
+    "currentTemp" => $data->weather->ObsData->temperature,
+    "currentCondCode" => $data->weather->ObsData->icon);
 
 
     return $sendToBlock;

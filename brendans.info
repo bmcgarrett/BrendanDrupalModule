@@ -4,3 +4,5 @@ description = "Brendans First Block Module"
 package = "ABC Corp."
 core = 7.x
 version = 2.0
+
+stylesheets[all][] = brendans.css

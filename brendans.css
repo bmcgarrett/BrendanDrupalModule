@@ -1,0 +1,18 @@
+#cityStateSpan {
+    font-weight: bold;
+}
+
+#weatherBlockLeft {
+    float: left;
+    width: 50%;
+}
+
+#weatherBlockRight {
+    float: right;
+    width: 50%;
+}
+
+#block-brendans-weather {
+    height: 150px;
+}
+
