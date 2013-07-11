@@ -5,4 +5,4 @@ package = "ABC Corp."
 core = 7.x
 version = 2.0
 
-stylesheets[all][] = brendans.css
+stylesheets[all][] = css/brendans.css

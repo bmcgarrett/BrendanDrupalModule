@@ -8,7 +8,7 @@
             </br>
             <img src='http://img.weather.weatherbug.com/forecast/icons/localized/50x42/en/trans/<?php print $content["currentCondCode"]; ?>.png'/>
             </br>
-            <span id='currentWeatherTempText'><?php print $content["currentTemp"]; ?>&deg;F</span>
+            <span id='currentWeatherTempText'><?php print round($content["currentTemp"]); ?>&deg;F</span>
             </br>
             <span id='currentWeatherDescText'><?php print $content["currentWeatherDesc"]; ?></span>
         </div>
@@ -17,17 +17,17 @@
                 <span id='todayText'>Today</span>
                 </br>
                 <img src='http://img.weather.weatherbug.com/forecast/icons/localized/25x21/en/trans/<?php print $content["todayIcon"]; ?>.png'/>
-                <span id='todayHighAndLow'><?php print $content["todayHigh"]; ?>...<?php print $content["todayLow"]; ?></span>
+                <span id='todayHighAndLow' class='forecastText'><?php print $content["todayHigh"]; ?>...<?php print $content["todayLow"]; ?></span>
                 <br>
-                <span id='todayWeatherDescText'><?php print $content["todayDesc"]; ?></span>
+                <span id='todayWeatherDescText' class='forecastText'><?php print $content["todayDesc"]; ?></span>
             </div>
             <div id="tomorrowForecast">
                 <span id='tomorrowText'>Tomorrow</span>
                 </br>
                 <img src='http://img.weather.weatherbug.com/forecast/icons/localized/25x21/en/trans/<?php print $content["tomorrowIcon"]; ?>.png'/>
-                <span id='tomorrowHighAndLow'><?php print $content["tomorrowHigh"]; ?>...<?php print $content["tomorrowLow"]; ?></span>
+                <span id='tomorrowHighAndLow' class='forecastText'><?php print $content["tomorrowHigh"]; ?>...<?php print $content["tomorrowLow"]; ?></span>
                 </br>
-                <span id='tomorrowWeatherDescText'><?php print $content["tomorrowDesc"]; ?></span>
+                <span id='tomorrowWeatherDescText' class='forecastText'><?php print $content["tomorrowDesc"]; ?></span>
             </div>
         </div>
     </div>

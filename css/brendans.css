@@ -4,16 +4,16 @@
 
 #weatherBlockLeft {
     float: left;
-    width: 50%;
+    width: 40%;
 }
 
 #weatherBlockRight {
     float: right;
-    width: 50%;
+    width: 60%;
 }
 
 #block-brendans-weather {
-    height: 225px;
+    height: 250px;
 }
 
 #currentWeatherTempText {
@@ -25,4 +25,17 @@
 
 #tomorrowForecast {
     padding-top: 10px;
+}
+
+#currentWeatherText,#todayText,#tomorrowText,#currentWeatherDescText {
+    color: #808080;
+    font-weight: bold;
+}
+
+.forecastText {
+    font-size: .6em;
+}
+
+#currentWeatherDescText {
+    font-size: .75em;
 }

@@ -27,10 +27,6 @@ function brendans_block_configure($delta) {
     return $form;
 }
 
-
-/**
- * Implements hook_block_save().
- */
 function brendans_block_save($delta = '', $edit = array()) {
     switch($delta) {
         case 'Weather':
