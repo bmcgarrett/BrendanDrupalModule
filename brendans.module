@@ -9,6 +9,37 @@ function brendans_block_info() {
     return $blocks;
 }
 
+function brendans_block_configure($delta) {
+
+    $form = array();
+
+    switch($delta){
+        case 'Weather':
+            $form['zipForWeather'] = array(
+                '#type' => 'textfield',
+                '#title' => t('Zip Code for Weather'),
+                '#size' => 6,
+                '#description' => t('Enter Zip Code to be used for Weather'),
+                '#default_value' => variable_get('zipForWeather', 23456),
+            );
+    }
+
+    return $form;
+}
+
+
+/**
+ * Implements hook_block_save().
+ */
+function brendans_block_save($delta = '', $edit = array()) {
+    switch($delta) {
+        case 'Weather':
+            variable_set('zipForWeather', (int)$edit['zipForWeather']);
+            break;
+    }
+    return;
+}
+
 function brendans_block_view($delta) {
     $block = array();
 
@@ -33,7 +64,8 @@ function brendans_theme($existing, $type, $theme, $path) {
 
 function brendans_weather_content() {
 
-    $result = file_get_contents('http://i.wxbug.net/REST/Direct/GetData.ashx?zip=23454&dt=l&dt=o&ic=1&dt=f&nf=3&api_key=2ncdmku9esspx8r653psbmfc');
+    $zipToUse = variable_get('zipForWeather',23456);
+    $result = file_get_contents('http://i.wxbug.net/REST/Direct/GetData.ashx?zip=' . $zipToUse .'&dt=l&dt=o&ic=1&dt=f&nf=3&api_key=2ncdmku9esspx8r653psbmfc');
     $data = json_decode($result);
     $sendToBlock = array("todayHigh" => $data->weather->ForecastData->forecastList[0]->high,
     "todayLow" => $data->weather->ForecastData->forecastList[0]->low,
@@ -48,7 +80,6 @@ function brendans_weather_content() {
     "currentTemp" => $data->weather->ObsData->temperature,
     "currentCondCode" => $data->weather->ObsData->icon,
     "currentWeatherDesc" => $data->weather->ObsData->desc);
-
 
     return $sendToBlock;
 }
