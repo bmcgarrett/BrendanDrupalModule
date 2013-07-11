@@ -17,7 +17,7 @@
                 <span id='todayText'>Today</span>
                 </br>
                 <img src='http://img.weather.weatherbug.com/forecast/icons/localized/25x21/en/trans/<?php print $content["todayIcon"]; ?>.png'/>
-                <span id='todayHighAndLow' class='forecastText'><?php print $content["todayHigh"]; ?>...<?php print $content["todayLow"]; ?></span>
+                <span id='todayHighAndLow' class='forecastText'><?php print $content["todayHigh"]; ?>&deg;F...<?php print $content["todayLow"]; ?>&deg;F</span>
                 <br>
                 <span id='todayWeatherDescText' class='forecastText'><?php print $content["todayDesc"]; ?></span>
             </div>
@@ -25,7 +25,7 @@
                 <span id='tomorrowText'>Tomorrow</span>
                 </br>
                 <img src='http://img.weather.weatherbug.com/forecast/icons/localized/25x21/en/trans/<?php print $content["tomorrowIcon"]; ?>.png'/>
-                <span id='tomorrowHighAndLow' class='forecastText'><?php print $content["tomorrowHigh"]; ?>...<?php print $content["tomorrowLow"]; ?></span>
+                <span id='tomorrowHighAndLow' class='forecastText'><?php print $content["tomorrowHigh"]; ?>&deg;F...<?php print $content["tomorrowLow"]; ?>&deg;F</span>
                 </br>
                 <span id='tomorrowWeatherDescText' class='forecastText'><?php print $content["tomorrowDesc"]; ?></span>
             </div>
