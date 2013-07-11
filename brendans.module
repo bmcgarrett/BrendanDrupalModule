@@ -37,10 +37,17 @@ function brendans_weather_content() {
     $data = json_decode($result);
     $sendToBlock = array("todayHigh" => $data->weather->ForecastData->forecastList[0]->high,
     "todayLow" => $data->weather->ForecastData->forecastList[0]->low,
+    "todayDesc" => $data->weather->ForecastData->forecastList[0]->dayDesc,
+    "todayIcon" => $data->weather->ForecastData->forecastList[0]->dayIcon,
+    "tomorrowHigh" => $data->weather->ForecastData->forecastList[1]->high,
+    "tomorrowLow" => $data->weather->ForecastData->forecastList[1]->low,
+    "tomorrowDesc" => $data->weather->ForecastData->forecastList[1]->dayDesc,
+    "tomorrowIcon" => $data->weather->ForecastData->forecastList[1]->dayIcon,
     "cityName" => $data->weather->LocationData->location->city,
     "stateName" => $data->weather->LocationData->location->state,
     "currentTemp" => $data->weather->ObsData->temperature,
-    "currentCondCode" => $data->weather->ObsData->icon);
+    "currentCondCode" => $data->weather->ObsData->icon,
+    "currentWeatherDesc" => $data->weather->ObsData->desc);
 
 
     return $sendToBlock;
