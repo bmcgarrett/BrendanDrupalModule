@@ -15,16 +15,19 @@ function brendans_block_view($delta) {
     switch($delta){
         case 'Weather':
             $block['subject'] = 'Weather Block';
-            $block['content'] = brendans_weather_content();
+            $block['content'] = theme('brendans_template');
             break;
     }
 
     return $block;
 }
 
-function brendans_theme() {
+function brendans_theme($existing, $type, $theme, $path) {
     return array(
-        'brendans_custom' => array('arguments' => array(), 'template' => 'brendans-custom-block')
+        'brendans_template' => array(
+            'variables' => array('title' => "Weather Block", 'content' => brendans_weather_content()),
+            'template' => 'brendans-template',
+        ),
     );
 }
 
@@ -32,19 +35,13 @@ function brendans_weather_content() {
 
     $result = file_get_contents('http://i.wxbug.net/REST/Direct/GetData.ashx?zip=23454&dt=l&dt=o&ic=1&dt=f&nf=3&api_key=2ncdmku9esspx8r653psbmfc');
     $data = json_decode($result);
-    $todayHigh = $data->weather->ForecastData->forecastList[0]->high;
-    $todayLow = $data->weather->ForecastData->forecastList[0]->low;
-    $cityName = $data->weather->LocationData->location->city;
-    $stateName = $data->weather->LocationData->location->state;
-    $currentTemp = $data->weather->ObsData->temperature;
-    $stringOutput = $cityName.', '.$stateName;
-    $stringOutput .= '<br>';
-    $stringOutput .= 'The current temp is '.$currentTemp;
-    $stringOutput .= '<br>';
-    $stringOutput .= 'The high today is '.$todayHigh;
-    $stringOutput .= '<br>';
-    $stringOutput .= 'The low today is '.$todayLow;
+    $sendToBlock = array("todayHigh" => $data->weather->ForecastData->forecastList[0]->high,
+    "todayLow" => $data->weather->ForecastData->forecastList[0]->low,
+    "cityName" => $data->weather->LocationData->location->city,
+    "stateName" => $data->weather->LocationData->location->state,
+    "currentTemp" => $currentTemp = $data->weather->ObsData->temperature);
 
-    return $stringOutput;
+
+    return $sendToBlock;
 }
 
